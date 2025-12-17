@@ -1,0 +1,16 @@
+[
+  {
+    "process_name": "SearchProtocolHost.exe",
+    "pid": 7756,
+    "path": null,
+    "timestamp": "2025-12-17 01:43:32",
+    "reason": "User whitelisted from rule: ML_BEHAVIOR_ANOMALY"
+  },
+  {
+    "process_name": "comet.exe",
+    "pid": 14380,
+    "path": null,
+    "timestamp": "2025-12-17 01:44:04",
+    "reason": "User whitelisted from rule: ML_BEHAVIOR_ANOMALY"
+  }
+]
