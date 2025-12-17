@@ -370,9 +370,10 @@ class TestCorrelationEngine:
         """Test threat trend analysis"""
         engine = CorrelationEngine()
         
-        # Add signals over time
+        # Add signals over time and calculate scores
         for i in range(5):
             engine.add_signal('file_behavior', 'test', 50.0 + i * 10)
+            engine.calculate_composite_score()  # This populates composite_scores
             time.sleep(0.1)
         
         trend = engine.get_threat_trend(duration=60)
