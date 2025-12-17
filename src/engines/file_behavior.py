@@ -60,7 +60,7 @@ class FileBehaviorEngine:
         # Alert tracking
         self.alerts: List[Dict] = []
         
-    def calculate_entropy(self, file_path: str, sample_size: int = 8192) -> float:
+    def calculate_entropy(self, file_path: str, sample_size: int = 8192, max_file_size: int = 100_000_000) -> float:
         """
         Calculate Shannon entropy of a file
         High entropy (>7.0) often indicates encryption
@@ -68,6 +68,7 @@ class FileBehaviorEngine:
         Args:
             file_path: Path to file
             sample_size: Number of bytes to sample
+            max_file_size: Maximum file size to process (default 100MB)
             
         Returns:
             Entropy value (0-8)
@@ -75,6 +76,12 @@ class FileBehaviorEngine:
         try:
             if not os.path.exists(file_path) or not os.path.isfile(file_path):
                 return 0.0
+            
+            # Check file size to prevent memory issues
+            file_size = os.path.getsize(file_path)
+            if file_size > max_file_size:
+                # For large files, sample from beginning only
+                sample_size = min(sample_size, 8192)
                 
             # Read sample
             with open(file_path, 'rb') as f:

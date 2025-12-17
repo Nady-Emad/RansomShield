@@ -166,6 +166,11 @@ class CorrelationEngine:
         Returns:
             Detection result if ransomware detected, None otherwise
         """
+        # Early return if no recent signals
+        recent_signals = self.get_recent_signals()
+        if not recent_signals:
+            return None
+        
         composite, breakdown = self.calculate_composite_score()
         
         # Check if we have signals from multiple engines

@@ -44,16 +44,19 @@ class ResponseEngine:
     
     def __init__(self, 
                  auto_response: bool = True,
-                 default_level: ResponseLevel = ResponseLevel.WARN):
+                 default_level: ResponseLevel = ResponseLevel.WARN,
+                 termination_timeout: float = 3.0):
         """
         Initialize Response Engine
         
         Args:
             auto_response: Enable automatic responses
             default_level: Default response level
+            termination_timeout: Timeout in seconds for graceful process termination
         """
         self.auto_response = auto_response
         self.default_level = default_level
+        self.termination_timeout = termination_timeout
         
         # Response tracking
         self.actions_taken: List[Dict] = []
@@ -307,9 +310,9 @@ class ResponseEngine:
             # Try graceful termination first
             proc.terminate()
             
-            # Wait up to 3 seconds for process to terminate
+            # Wait for process to terminate
             try:
-                proc.wait(timeout=3)
+                proc.wait(timeout=self.termination_timeout)
             except psutil.TimeoutExpired:
                 # Force kill if still running
                 proc.kill()

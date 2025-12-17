@@ -6,6 +6,7 @@ Tests all detection engines, correlation, response, and PyQt5 worker
 import os
 import time
 import tempfile
+import random
 import pytest
 from unittest.mock import Mock, patch, MagicMock
 
@@ -34,7 +35,6 @@ class TestFileBehaviorEngine:
         # Create a file with random (high entropy) data
         with tempfile.NamedTemporaryFile(delete=False, mode='wb') as f:
             # Random bytes simulate encryption
-            import random
             random_data = bytes([random.randint(0, 255) for _ in range(8192)])
             f.write(random_data)
             temp_path = f.name
@@ -76,7 +76,6 @@ class TestFileBehaviorEngine:
         
         # Create high entropy file with suspicious extension
         with tempfile.NamedTemporaryFile(delete=False, suffix='.encrypted', mode='wb') as f:
-            import random
             f.write(bytes([random.randint(0, 255) for _ in range(8192)]))
             temp_path = f.name
         

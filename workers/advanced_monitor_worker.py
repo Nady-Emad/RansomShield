@@ -150,12 +150,11 @@ class AdvancedMonitorWorker(QThread):
         command_anomaly = self.cli_engine.detect_command_anomalies()
         if command_anomaly:
             self._emit_alert(command_anomaly)
+            risk_score = command_anomaly.get('average_risk', command_anomaly.get('risk_score', 0))
             self._add_correlation_signal(
                 'cli_monitor',
                 'command_anomaly',
-                command_anomaly.get('average_risk', 0) 
-                if 'average_risk' in command_anomaly 
-                else command_anomaly.get('risk_score', 0),
+                risk_score,
                 command_anomaly
             )
         

@@ -151,13 +151,19 @@ class CLIMonitorEngine:
             List of analysis results for suspicious processes
         """
         results = []
+        max_cmdline_length = 32768  # Windows max command line length
         
         for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
             try:
                 cmdline = proc.info.get('cmdline', [])
                 if cmdline:
-                    # Join command line arguments
-                    cmdline_str = ' '.join(cmdline)
+                    # Join command line arguments with validation
+                    cmdline_str = ' '.join(str(arg) for arg in cmdline if arg)
+                    
+                    # Truncate if too long
+                    if len(cmdline_str) > max_cmdline_length:
+                        cmdline_str = cmdline_str[:max_cmdline_length]
+                    
                     result = self.analyze_command(cmdline_str, proc.info['pid'])
                     
                     if result['suspicious']:
