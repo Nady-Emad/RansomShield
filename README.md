@@ -78,7 +78,7 @@ A **sophisticated, production-ready ransomware detection and prevention system**
 
 ```bash
 git clone https://github.com/Nady-Emad/RansomShield.git
-cd ransomware-detection
+cd RansomShield
 ```
 
 ### Step 2: Install Dependencies
@@ -207,6 +207,7 @@ The Performance tab provides:
 
 #### 1️⃣ **Canary File Tampering**
 ```bash
+cd tests
 python canary_test.py
 ```
 - **What it does**: Continuously modifies canary file
@@ -399,7 +400,7 @@ Contributions welcome! Areas for enhancement:
 
 ## 📄 License
 
-MIT License © 2024. See LICENSE file for details.
+MIT License © 2025. See LICENSE file for details.
 
 ---
 
