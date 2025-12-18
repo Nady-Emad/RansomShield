@@ -1,0 +1,88 @@
+# RansomShield - Project Dependencies
+# Install all dependencies with: pip install -r requirements.txt
+
+# ============================================================================
+# CORE DEPENDENCIES - Required for running the application
+# ============================================================================
+
+# System metrics and process management
+psutil>=5.8.0
+
+# File system event monitoring (Windows-optimized)
+watchdog>=2.1.0
+
+# Modern GUI Framework (PyQt5) - Recommended
+PyQt5>=5.15.0
+PyQt5-sip>=12.9.0
+
+# Note: Tkinter is built-in with Python, no need to install
+
+# ============================================================================
+# OPTIONAL DEPENDENCIES - For enhanced features
+# ============================================================================
+
+# Data visualization and reporting (optional)
+matplotlib>=3.5.0
+pandas>=1.3.0
+
+# For advanced logging
+colorlog>=6.7.0
+
+# ============================================================================
+# DEVELOPMENT DEPENDENCIES - For testing and code quality
+# ============================================================================
+
+# Unit testing framework
+pytest>=6.0.0
+pytest-cov>=3.0.0
+
+# Code formatting and style
+black>=21.0b0
+autopep8>=1.6.0
+
+# Code analysis and linting
+pylint>=2.0.0
+flake8>=4.0.0
+
+# Type checking
+mypy>=0.900
+
+# ============================================================================
+# OPTIONAL: ADVANCED SECURITY FEATURES (Future Enhancement)
+# ============================================================================
+
+# Machine Learning for behavioral analysis (optional)
+# scikit-learn>=1.0.0
+# numpy>=1.20.0
+
+# For YARA-based ransomware detection (optional)
+# yara-python>=4.2.0
+
+# ============================================================================
+# NOTES:
+# ============================================================================
+# 
+# 1. Windows Requirements:
+#    - Python 3.8+ (recommended 3.9+)
+#    - Administrator privileges for process termination
+#    - Windows 7 or later
+#
+# 2. Installation Instructions:
+#    pip install -r requirements.txt
+#
+# 3. For PyQt5 on Windows:
+#    If you encounter issues, try:
+#    pip install --upgrade PyQt5
+#
+# 4. For development (including all dev tools):
+#    pip install -r requirements.txt
+#    pip install pytest black pylint flake8 mypy
+#
+# 5. Minimal Installation (core only):
+#    pip install psutil watchdog PyQt5
+#
+# 6. Troubleshooting:
+#    - If psutil fails: pip install --upgrade setuptools
+#    - If watchdog fails on Windows: pip install --upgrade watchdog
+#    - For Python 3.13+: May need watchdog>=3.0.0
+#
