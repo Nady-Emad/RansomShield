@@ -77,7 +77,7 @@ A **sophisticated, production-ready ransomware detection and prevention system**
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ransomware-detection.git
+git clone https://github.com/Nady-Emad/RansomShield.git
 cd ransomware-detection
 ```
 
@@ -408,7 +408,7 @@ MIT License © 2024. See LICENSE file for details.
 **Nady Emad**
 - 🎓 Cybersecurity Student @ SUT University, Cairo
 - 🔐 Specializing in Ransomware Detection & Threat Analysis
-- 💼 [GitHub](https://github.com/nadyemad) | [LinkedIn](https://linkedin.com/in/nadyemad)
+- 💼 [GitHub](https://github.com/Nady-Emad) | [LinkedIn](www.linkedin.com/in/nadyemad)
 
 ---
 
